@@ -29,6 +29,7 @@ main()
         exit 1
     fi
 
+    # Split specified version by "-"
     export IFS='-'
     local kdb_version_array=($KDB_VERSION)
     local kdb_version_array_count=${#kdb_version_array[@]}
@@ -85,9 +86,14 @@ main()
     find ./$app_path -type f | grep -v '/q$' | awk ' { print "install -m 644 ." $1 " %{buildroot}/opt/kdb-plus/" $1 }' >> $spec_target
     find ./$app_path -type f | grep '/q$' | awk ' { print "install -m 755 ." $1 " %{buildroot}/opt/kdb-plus/" $1 }' >> $spec_target
 
+    echoInf "\n$(date) Building RPM...\n"
+
+    rpmbuild -bb $spec_target
+
+    echoInfo "\n$(date) BUILD COMPLETE!\n"
 
     popd > /dev/null
-
+    exit 0
 }
 
 usage()
@@ -97,9 +103,9 @@ Usage:
    
     $PROGNAME *KDB_VERSION* *KDB_FOLDER_ROOT* *RPM_BUILD_LOC*
 
-        *KDB_VERSION*     :
+        *KDB_VERSION*     : The version identifier for the build. This should be written as VERSION-RELEASE_DATE
         *KDB_FOLDER_ROOT* : The folder containing the kdb binary and associated files for building. Defaults to ${DEFAULT_KDB_FOLDER_ROOT}.
-        *RPM_BUILD_LOC*   :
+        *RPM_BUILD_LOC*   : The folder to store the RPM-related files in. Defaults to ${DEFAULT_RPM_BUILD_LOC}.
 
 EOF
 }

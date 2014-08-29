@@ -53,7 +53,7 @@ In order to install the RPM into the default location (`/opt`) you must be able 
 1. Get the name of the kdb-plus package
   * `rpm -qa | grep kdb-plus`
 2. Uninstall the package
-  * `rpm -e *installed_package_name*
+  * `rpm -e *installed_package_name*`
 
 ### DEB
 

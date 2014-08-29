@@ -22,10 +22,13 @@ The scripts within the `rpm` folder will generate the necessary [SPEC File](http
 #### Generating the kdb-plus RPM
 
 1. Clone, or download, this repository on to your machine
-2. Run `build.sh`
+2. In order to build the RPM as a non-root user (which is *highly* recomended):
+  * `touch ~/.rpmmacros`
+  * `echo '%_topdir %(echo $HOME)/rpmbuild' > ~/.rpmmacros`
+3. Run `build.sh`
   * Example: `build.sh 3.1-2014.08.22 /path/to/kdb/home /custom/rpm/build/location`
   * Run `build.sh` with no arguments for usage information
-3. The script will then generate:
+4. The script will then generate:
   * SPEC file in `*RPM_BUILD_LOC*/SPECS`
   * Source .tar.gz in `*RPM_BUILD_LOC*/SOURCES`
   * RPM file in `*RPM_BUILD_LOC*/RPMS`

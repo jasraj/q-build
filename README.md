@@ -24,17 +24,36 @@ The scripts within the `rpm` folder will generate the necessary [SPEC File](http
 
 1. Clone, or download, this repository on to your machine
 2. In order to build the RPM as a non-root user (which is *highly* recomended):
-  * `touch ~/.rpmmacros`
   * `echo '%_topdir %(echo $HOME)/rpmbuild' > ~/.rpmmacros`
 3. Run `build.sh`
   * Example: `build.sh 3.1-2014.08.22 /path/to/kdb/home /custom/rpm/build/location`
   * Run `build.sh` with no arguments for usage information
-4. The script will then generate:
-  * SPEC file in `*RPM_BUILD_LOC*/SPECS`
-  * Source .tar.gz in `*RPM_BUILD_LOC*/SOURCES`
-  * RPM file in `*RPM_BUILD_LOC*/RPMS`
+4. The script will generate 3 files:
+  * The SPEC file defines how to build the RPM
+    * Location: `*RPM_BUILD_LOC*/SPECS`
+  * The source TAR GZ file that contains all the files that will be installed by the RPM
+    * Location: `*RPM_BUILD_LOC*/SOURCES`
+  * The RPM file itself 
+    * Location: `*RPM_BUILD_LOC*/RPMS/*ARCH*`
+
+The version and release number of the RPM that is generated is based on the kdb+ version passed into the `build.sh` script. 
 
 #### Installing the kdb-plus RPM
+
+In order to install the RPM into the default location (`/opt`) you must be able to run `sudo` as root. 
+
+1. Run `sudo rpm -i /path/to/generated/kdb-plus.rpm`
+  * If you don't have `sudo`, try `rpm -i --prefix=~/kdb-install /path/to/generated/kdb-plus.rpm`
+2. Log out and log back in to pick up the new enviroment settings
+  * `echo $QHOME` or `echo $PATH` to check that kdb+ has been installed
+3. Run `q` to start a q session!
+
+#### Uninstalling the kdb-plus RPM
+
+1. Get the name of the kdb-plus package
+  * `rpm -qa | grep kdb-plus`
+2. Uninstall the package
+  * `rpm -e *installed_package_name*
 
 ### DEB
 

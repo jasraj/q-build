@@ -17,7 +17,8 @@ The scripts within the `rpm` folder will generate the necessary [SPEC File](http
 
 1. A machine running Red Hat Enterprise Linux (RHEL) or other RPM-based Operating System
 2. The `rpm-build` package installed (`yum install rpm-build` should install it on an RHEL system)
-3. A local copy of the kdb+ version you wish to package. If you don't have a licensed version, visit the [kx Webiste](http://kx.com/software-download.php) to download the 32-bit `l32` version which is free for commerical use.
+3. A local copy of the kdb+ version you wish to package
+  * If you don't have a licensed version, visit the [kx Webiste](http://kx.com/software-download.php) to download, and unzip, the 32-bit `l32` version which is free for commerical use
 
 #### Generating the kdb-plus RPM
 

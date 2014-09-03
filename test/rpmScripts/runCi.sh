@@ -1,0 +1,1 @@
+cd /q-build/test/rpmScripts/ && ./buildRpm.sh && ./installRpm.sh && ./testRpm.sh

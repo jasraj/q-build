@@ -15,23 +15,21 @@ The scripts within the `rpm` folder will generate the necessary [SPEC File](http
 
 #### Prerequisites
 
-1. A machine running Red Hat Enterprise Linux (RHEL) or other RPM-based Operating System
+1. Any Linux operating system that supports RPM as an install mechanism (e.g. RHEL, CentOS)
 2. The `rpm-build` package installed
   * `yum install rpm-build`
 3. A local copy of the kdb+ version you wish to package
-  * If you don't have a licensed version, visit the [kx Webiste](http://kx.com/software-download.php) to download, and unzip, the 32-bit `l32` version which is free for commerical use
-4. If you're planning to run the 32-bit version on a 64-bit machine, ensure that the 32-bit libraries are installed.
+  * If you don't have a licensed version, visit the [kx Webiste](http://kx.com/software-download.php) to download, and unzip, the 32-bit (`l32`) version which is free for commerical use
+4. If you're planning to run the 32-bit version on a 64-bit machine, ensure that the 32-bit libraries are installed
   * `yum install glibc.i686`
 
 #### Generating the kdb-plus RPM
 
 1. Clone, or download, this repository on to your machine
-2. In order to build the RPM as a non-root user (which is *highly* recomended):
-  * `echo '%_topdir %(echo $HOME)/rpmbuild' > ~/.rpmmacros`
-3. Run `build.sh`
+2. Run `build.sh`
   * Example: `build.sh 3.1-2014.08.22 /path/to/kdb/home /custom/rpm/build/location`
   * Run `build.sh` with no arguments for usage information
-4. The script will generate 3 files within the specified build location:
+3. The script will generate 3 files within the specified build location:
   * The SPEC file defines how to build the RPM
   * The source TAR GZ file that contains all the files that will be installed by the RPM
   * The RPM file itself 
@@ -50,10 +48,15 @@ In order to install the RPM into the default location (`/opt`) you must be able 
 
 #### Uninstalling the kdb-plus RPM
 
-1. Get the name of the kdb-plus package
-  * `rpm -qa | grep kdb-plus`
-2. Uninstall the package
-  * `rpm -e *installed_package_name*`
+To uninstall, you need to query the name of kdb+ package that was installed before removing with `rpm -e *package_name*`:
+
+```
+[root ~]# rpm -qa | grep kdb
+kdb-plus-3.1-2013.11.20
+[root ~]# rpm -e kdb-plus-3.1-2013.11.20
+[root ~]# rpm -qa | grep kdb
+[root ~]#
+```
 
 ### DEB
 

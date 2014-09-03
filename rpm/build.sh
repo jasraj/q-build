@@ -90,9 +90,9 @@ main()
 
     echoInf "\n$(date) Building RPM...\n"
 
-    rpmbuild -bb $spec_target
+    rpmbuild --define "_topdir ${build_loc}" -bb $spec_target
 
-    echoInfo "\n$(date) BUILD COMPLETE!\n"
+    echoInf "\n$(date) BUILD COMPLETE!\n"
 
     popd > /dev/null
     exit 0

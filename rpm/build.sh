@@ -56,7 +56,7 @@ main()
     fi
 
     # Generate all the necessary build folders
-    ( mkdir -p $build_loc && cd $build_loc && mkdir BUILD RPMS SOURCES SPECS SRPMS)
+    ( mkdir -p $build_loc && cd $build_loc && mkdir BUILD RPMS SOURCES SPECS SRPMS )
 
     local app_name=kdb-plus-${KDB_VERSION}
     local app_path=kdb-plus-${kdb_major_version}

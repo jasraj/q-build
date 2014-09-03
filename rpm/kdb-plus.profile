@@ -4,7 +4,10 @@
 ## Copyright (C) 2014 Jaskirat M.S. Rajasansir
 ## License BSD, see LICENSE for details
 
-readonly KDB_INSTALL_PATH=~~INSTALL_PATH~~
+if [[ -z $KDB_INSTALL_PATH ]]; then
+    # Allows profile to be re-sourced without error
+    readonly KDB_INSTALL_PATH=~~INSTALL_PATH~~
+fi
 
 main()
 {

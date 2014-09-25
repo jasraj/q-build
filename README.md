@@ -66,3 +66,4 @@ In order to install the RPM into the default location (`/opt`) you must be able 
 
 
 [![Analytics](https://ga-beacon.appspot.com/UA-54104883-2/q-build/README)](https://github.com/jasraj/q-build)
+[![Build](https://circleci.com/gh/jasraj/q-build.png?style=shield)](https://circleci.com/gh/jasraj/q-build)

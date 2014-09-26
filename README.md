@@ -68,3 +68,4 @@ kdb-plus-3.1-2013.11.20
 
 
 [![Analytics](https://ga-beacon.appspot.com/UA-54104883-2/q-build/README)](https://github.com/jasraj/q-build)
+[![Build](https://circleci.com/gh/jasraj/q-build.png?style=shield)](https://circleci.com/gh/jasraj/q-build)

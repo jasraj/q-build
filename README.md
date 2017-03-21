@@ -2,10 +2,7 @@
 
 > RPM and DEB packaging scripts for kdb+
 
-This repo provides scripts to allow the standard kdb+ binary to built into the following package types:
-
-* RPM (for RedHat systems)
-* DEB (for Debian systems, including Ubuntu)
+This repo provides scripts to allow the standard kdb+ binary to built into RPM packages.
 
 The repo also provides a default profile that will automatically set up `q`, once installed into the system (via the `/etc/profile.d` system).  
 
@@ -57,15 +54,6 @@ kdb-plus-3.1-2013.11.20
 [root ~]# rpm -qa | grep kdb
 [root ~]#
 ```
-
-### DEB
-
-#### Prerequisites
-
-#### Generating the kdb-plus DEB
-
-#### Installing the kdb-plus DEB
-
 
 [![Analytics](https://ga-beacon.appspot.com/UA-54104883-2/q-build/README)](https://github.com/jasraj/q-build)
 [![Build](https://circleci.com/gh/jasraj/q-build.png?style=shield)](https://circleci.com/gh/jasraj/q-build)

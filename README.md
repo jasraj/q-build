@@ -16,7 +16,7 @@ The scripts within the `rpm` folder will generate the necessary [SPEC File](http
 2. The `rpm-build` package installed
   * `yum install rpm-build`
 3. A local copy of the kdb+ version you wish to package
-  * If you don't have a licensed version, visit the [kx Webiste](http://kx.com/software-download.php) to download, and unzip, the 32-bit (`l32`) version which is free for commerical use
+  * If you don't have a licensed version locally, visit the [kx Webiste](http://kx.com/software-download.php) to download, and unzip, the 32-bit (`l32`) version
 4. If you're planning to run the 32-bit version on a 64-bit machine, ensure that the 32-bit libraries are installed
   * `yum install glibc.i686`
 
